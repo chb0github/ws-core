@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+			               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <bean id="annotationIntrospector" class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
+        <constructor-arg>
+            <bean class="org.bongiorno.ws.core.dto.support.AdapterBeanAnnotationIntrospector"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
+                <constructor-arg>
+                    <bean class="org.codehaus.jackson.xc.JaxbAnnotationIntrospector"/>
+                </constructor-arg>
+                <constructor-arg>
+                    <bean class="org.codehaus.jackson.map.introspect.JacksonAnnotationIntrospector"/>
+                </constructor-arg>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
+        <constructor-arg>
+            <bean class="org.codehaus.jackson.map.ObjectMapper">
+                <property name="annotationIntrospector" ref="annotationIntrospector"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dateOnlyAdapter" class="org.bongiorno.ws.core.dto.support.DefaultLocalDateAdapter"/>
+    <bean id="timeOnlyAdapter" class="org.bongiorno.ws.core.dto.support.DefaultLocalTimeAdapter"/>
+    <bean id="dateTimeAdapter" class="org.bongiorno.ws.core.dto.support.DefaultDateTimeAdapter"/>
+
+    <bean id="dateTimeParameterHandler"  class="org.bongiorno.ws.core.parameterhandlers.DateTimeParameterHandler"/>
+
+    <bean id="jsonError" class="org.bongiorno.ws.core.client.JsonErrorReader"/>
+    <bean id="xmlError" class="org.bongiorno.ws.core.client.XmlErrorReader"/>
+
+
+    <bean name="defaultConnectionManager" class="org.apache.commons.httpclient.params.HttpConnectionManagerParams">
+        <property name="maxTotalConnections" value="${connection.max:50}"/>
+        <property name="defaultMaxConnectionsPerHost" value="${connection.max:50}"/>
+        <property name="connectionTimeout" value="${connection.timeout:8000}"/>
+        <property name="soTimeout" value="${socket.timeout:8000}"/>
+        <property name="staleCheckingEnabled" value="true"/>
+    </bean>
+
+
+    <bean id="defaultErrorHandlers" class="org.bongiorno.ws.core.client.ErrorResponseErrorHandler">
+        <constructor-arg name="errorReaderMap">
+            <util:map id="errorReaderMap">
+                <entry key="application/json" value-ref="jsonError"/>
+                <entry key="application/xml" value-ref="xmlError"/>
+            </util:map>
+        </constructor-arg>
+        <constructor-arg name="defaultErrorReader">
+            <bean class="org.bongiorno.ws.core.client.TextErrorReader"/>
+        </constructor-arg>
+    </bean>
+
+    <util:list id="defaultMessageConverters">
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+            <property name="objectMapper">
+                <bean class="org.codehaus.jackson.map.ObjectMapper">
+                    <property name="annotationIntrospector" ref="annotationIntrospector"/>
+                </bean>
+            </property>
+        </bean>
+        <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
+    </util:list>
+
+    <util:map id="defaultClientParameterConverters">
+        <entry key="org.joda.time.DateTime" value-ref="dateTimeAdapter"/>
+    </util:map>
+
+    <bean id="dispatcherExceptionMapper" class="org.bongiorno.ws.core.exceptions.mapping.DispatcherExceptionMapper" lazy-init="true">
+        <constructor-arg>
+            <util:set>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.WebServiceExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.WebApplicationExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.AuthenticationExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.JsonProcessingExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.NonexistentEntityExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.AccessDeniedExceptionMapper"/>
+                <bean class="org.bongiorno.ws.core.exceptions.mapping.UnknownUserExceptionMapper"/>
+            </util:set>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="org.bongiorno.ws.core.exceptions.mapping.EverythingElseExceptionMapper"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="systemController" class="org.bongiorno.ws.core.controllers.SystemController" lazy-init="true">
+        <constructor-arg>
+            <bean class="org.bongiorno.common.utils.functions.predicates.RegexMatchPredicate">
+                <constructor-arg value=".*(password|secret|passphrase|safenet\.iv|key).*"/>
+            </bean>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="org.bongiorno.ws.core.verifiers.AllInContextVerifier"/>
+        </constructor-arg>
+    </bean>
+</beans>
