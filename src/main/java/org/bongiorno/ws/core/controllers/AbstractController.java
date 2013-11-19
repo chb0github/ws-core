@@ -1,7 +1,7 @@
 package org.bongiorno.ws.core.controllers;
 
 import org.bongiorno.common.utils.OtherUtils;
-import org.bongiorno.common.utils.VdcCollections;
+import org.bongiorno.common.utils.WSCollections;
 import org.bongiorno.ws.core.exceptions.BadRequestException;
 import org.joda.time.DateTime;
 
@@ -15,7 +15,6 @@ import java.util.*;
  * the @Path annotation from reflection. To get around that we had to roll some code that, on it's own is useful
  * and thusly, we expose it
  *
- * @author cbongiorno
  */
 public abstract class AbstractController {
 
@@ -81,7 +80,7 @@ public abstract class AbstractController {
     }
 
     protected void checkOptionalDateRange(DateTime from, DateTime to){
-        Map<String, String> details = VdcCollections.asMap(
+        Map<String, String> details = WSCollections.asMap(
                 "from", "" + from,
                 "to", "" + to);
         if (!OtherUtils.zeroOrAllNull(from, to)) {

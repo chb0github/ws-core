@@ -5,9 +5,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 /**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 5:24 PM
  * 404 Not Found
  * The requested resource could not be found but may be available again in the future.
  * Subsequent requests by the client are permissible

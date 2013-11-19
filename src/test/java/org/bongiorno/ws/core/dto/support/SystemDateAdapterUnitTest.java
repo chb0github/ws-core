@@ -7,12 +7,8 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * @author cbongiorno
- *         Date: 5/17/12
- *         Time: 2:49 PM
- */
-public class AppZoneDateAdapterUnitTest {
+
+public class SystemDateAdapterUnitTest {
 
     @Test
     public void testDateAdapter() throws Exception {

@@ -7,11 +7,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 4:23 PM
- */
 public class WebServiceExceptionMapper extends AbstractExceptionMapper<WebserviceException> {
 
     @Override

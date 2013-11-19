@@ -9,10 +9,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author cbongiorno
- * @version 7/7/12 3:54 PM
- */
 @SuppressWarnings("deprecated")
 public class MultiThreadedRestTemplate extends RestTemplate {
 

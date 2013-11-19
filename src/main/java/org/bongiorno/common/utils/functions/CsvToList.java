@@ -1,7 +1,7 @@
 package org.bongiorno.common.utils.functions;
 
 import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.utils.VdcCollections;
+import org.bongiorno.common.utils.WSCollections;
 
 import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class CsvToList extends PropertyEditorSupport implements Function<String,
         if (!(value instanceof Collection))
             throw new IllegalArgumentException("Only a Collection may be used. Type was: " + value.getClass());
 
-        return VdcCollections.delimitedCollection((Collection) value, ",").toString();
+        return WSCollections.delimitedCollection((Collection) value, ",").toString();
     }
 
     public void setAsText(String text) throws IllegalArgumentException {

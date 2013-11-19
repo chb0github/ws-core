@@ -1,10 +1,8 @@
 package org.bongiorno.ws.core.server.filters;
 
 import org.bongiorno.common.utils.SecurityUtils;
-import org.bongiorno.common.utils.VdcRandom;
+import org.bongiorno.common.utils.WSRandom;
 import org.bongiorno.ws.core.client.headers.DefaultAuthHeader;
-import org.bongiorno.ws.core.exceptions.UnauthorizedException;
-import org.bongiorno.common.utils.SecurityUtils;
 import org.bongiorno.ws.core.exceptions.UnauthorizedException;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,9 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import static org.mockito.Mockito.*;
 
-/**
- * @author cbongiorno
- */
+
 @RunWith(MockitoJUnitRunner.class)
 public class FilterUnitTest {
 
@@ -36,7 +32,7 @@ public class FilterUnitTest {
         response = mock(HttpServletResponse.class);
         filterChain = mock(FilterChain.class);
         stamp = System.currentTimeMillis();
-        sharedSecret = VdcRandom.hexString(8);
+        sharedSecret = WSRandom.hexString(8);
         String data = sharedSecret + stamp;
         signature = SecurityUtils.hashTo(data, DefaultAuthHeader.DEFAULT_STRATEGY);
         when(request.getHeader(DefaultAuthHeader.TOKEN_HEADER)).thenReturn(signature);
@@ -82,7 +78,7 @@ public class FilterUnitTest {
 
         when(request.getHeader(DefaultAuthHeader.USER_NAME_HEADER)).thenReturn("unit-test");
         when(request.getHeader(DefaultAuthHeader.TIME_HEADER)).thenReturn(String.valueOf(stamp));
-        when(request.getHeader(DefaultAuthHeader.TOKEN_HEADER)).thenReturn(VdcRandom.hexString(8));
+        when(request.getHeader(DefaultAuthHeader.TOKEN_HEADER)).thenReturn(WSRandom.hexString(8));
         filter.doFilterWebserviceInternal(request, response, filterChain);
     }
 }

@@ -3,18 +3,12 @@ package org.bongiorno.ws.core.dto.support;
 import org.bongiorno.common.utils.functions.StyleSheetFunction;
 import org.bongiorno.ws.core.dto.Dto;
 import org.bongiorno.ws.core.dto.DtoUtils;
-import org.bongiorno.ws.core.dto.DtoUtils;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.transform.TransformerException;
 
-/**
- * @author cbongiorno
- *         Date: 4/21/12
- *         Time: 12:56 PM
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 public abstract class AbstractDto implements Dto {
 

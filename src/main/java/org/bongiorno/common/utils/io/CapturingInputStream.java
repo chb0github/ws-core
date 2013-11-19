@@ -2,9 +2,6 @@ package org.bongiorno.common.utils.io;
 
 import java.io.*;
 
-/**
- * @author cbongiorno
- */
 public class CapturingInputStream extends FilterInputStream {
 
     private ByteArrayOutputStream captureStream;

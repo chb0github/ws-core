@@ -2,15 +2,8 @@ package org.bongiorno.ws.core.exceptions.mapping;
 
 import org.bongiorno.ws.core.dto.support.AbstractDto;
 import org.bongiorno.ws.core.exceptions.ErrorResponse;
-import org.bongiorno.ws.core.dto.support.AbstractDto;
-import org.bongiorno.ws.core.exceptions.ErrorResponse;
 import org.springframework.http.HttpStatus;
 
-/**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 4:23 PM
- */
 public class EverythingElseExceptionMapper extends AbstractExceptionMapper<Throwable> {
 
     @Override

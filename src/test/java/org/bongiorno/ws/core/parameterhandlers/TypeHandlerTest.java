@@ -8,11 +8,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * @author cbongiorno
- *         Date: 5/14/12
- *         Time: 5:51 PM
- */
+
 @RunWith(MockitoJUnitRunner.class)
 public class TypeHandlerTest {
 

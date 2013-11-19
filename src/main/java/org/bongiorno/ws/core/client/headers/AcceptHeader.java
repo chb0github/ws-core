@@ -12,9 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author cbongiorno
- *         Date: 7/1/12
- *         Time: 10:08 PM
  *
  *         Adds accept headers to a rest client
  */

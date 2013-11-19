@@ -4,11 +4,7 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Map;
 
-/**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 5:24 PM
- */
+
 public class BadRequestException extends WebserviceException {
 
     public static final HttpStatus STATUS = HttpStatus.BAD_REQUEST;

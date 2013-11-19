@@ -5,14 +5,11 @@ import org.junit.Test;
 import java.util.*;
 
 import static junit.framework.Assert.assertEquals;
+import static org.bongiorno.common.utils.WSCollections.*;
 import static org.junit.Assert.fail;
 
-/**
- * @author cbongiorno
- *         Date: 7/1/12
- *         Time: 2:31 PM
- */
-public class VdcCollectionsTest {
+
+public class WSCollectionsTest {
 
     @Test
     public void testDelimiter() {
@@ -30,17 +27,17 @@ public class VdcCollectionsTest {
     public void testDelimitedMap() throws Exception {
         Map<Object,Object> m = delimitedMap(new LinkedHashMap<Object, Object>(), "#:", "$$");
         m.put("Christian", "Bongiorno");
-        m.put("Viola", "Bongiorno");
-        m.put("Adrian", "Bongiorno");
-        m.put("Maya", "Bongiorno");
-        assertEquals(m.toString(), "Christian#:Bongiorno$$Viola#:Bongiorno$$Adrian#:Bongiorno$$Maya#:Bongiorno$$");
+        m.put("Snookie", "Bongiorno");
+        m.put("Pookie", "Bongiorno");
+        m.put("Rookie", "Bongiorno");
+        assertEquals(m.toString(), "Christian#:Bongiorno$$Snookie#:Bongiorno$$Pookie#:Bongiorno$$Rookie#:Bongiorno$$");
 
         m = delimitedMap(new LinkedHashMap<Object, Object>(), "!!", "#:", "$$");
         m.put("Christian", "Bongiorno");
-        m.put("Viola", "Bongiorno");
-        m.put("Adrian", "Bongiorno");
-        m.put("Maya", "Bongiorno");
-        assertEquals(m.toString(), "!!Christian#:Bongiorno$$!!Viola#:Bongiorno$$!!Adrian#:Bongiorno$$!!Maya#:Bongiorno$$");
+        m.put("Snookie", "Bongiorno");
+        m.put("Pookie", "Bongiorno");
+        m.put("Rookie", "Bongiorno");
+        assertEquals(m.toString(), "!!Christian#:Bongiorno$$!!Snookie#:Bongiorno$$!!Pookie#:Bongiorno$$!!Rookie#:Bongiorno$$");
     }
 
     @Test

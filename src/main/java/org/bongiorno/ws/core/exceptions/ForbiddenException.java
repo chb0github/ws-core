@@ -5,9 +5,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 /**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 5:24 PM
  *         403 Forbidden
  *         The request was a legal request, but the server is refusing to respond to it.[2]
  *         Unlike a 401 Unauthorized response, authenticating will make no difference.[2]

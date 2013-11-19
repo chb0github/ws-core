@@ -12,11 +12,6 @@ import javax.xml.bind.Unmarshaller;
 import java.io.*;
 
 
-/**
- * @author cbongiorno
- *         Date: 4/20/12
- *         Time: 5:05 PM
- */
 public class MarshalTester {
 
     public static <T> T perform(String file, Class<T> clazz) throws Exception {

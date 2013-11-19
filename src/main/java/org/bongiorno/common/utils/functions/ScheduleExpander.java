@@ -2,7 +2,6 @@ package org.bongiorno.common.utils.functions;
 
 import org.bongiorno.common.Schedule;
 import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.Schedule;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.joda.time.LocalDate;
@@ -12,9 +11,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author cbongiorno
- */
 public class ScheduleExpander implements Function<Schedule, Set<Interval>> {
 
     private DateTime from;

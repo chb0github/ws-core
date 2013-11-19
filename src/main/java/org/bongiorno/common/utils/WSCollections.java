@@ -2,17 +2,10 @@ package org.bongiorno.common.utils;
 
 import org.bongiorno.common.utils.functions.ConstantFunction;
 import org.bongiorno.common.utils.functions.predicates.NotPredicate;
-import org.bongiorno.common.utils.functions.ConstantFunction;
-import org.bongiorno.common.utils.functions.predicates.NotPredicate;
 
 import java.util.*;
 
-/**
- * @author cbongiorno
- *         Date: 4/22/12
- *         Time: 2:19 PM
- */
-public final class VdcCollections {
+public final class WSCollections {
 
 
     public static <K, V> Map<K, V> exceptionOnDuplicateMap(Map<K, V> m) {
@@ -275,9 +268,9 @@ public final class VdcCollections {
     }
 
     /**
-     * @author cbongiorno
-     *         Date: 7/1/12
-     *         Time: 1:22 PM
+
+
+
      */
     private static class DelimitedCollection<T> extends QuickCollection<T> {
         private String delimiter = ",";

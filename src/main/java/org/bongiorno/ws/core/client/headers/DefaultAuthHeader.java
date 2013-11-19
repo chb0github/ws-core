@@ -1,18 +1,12 @@
 package org.bongiorno.ws.core.client.headers;
 
 import org.bongiorno.common.utils.SecurityUtils;
-import org.bongiorno.common.utils.SecurityUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.web.client.RequestCallback;
 
 import java.io.IOException;
 
-/**
- * @author cbongiorno
- *         Date: 7/2/12
- *         Time: 1:53 PM
- */
 public class DefaultAuthHeader implements RequestCallback {
 
     public static final String USER_NAME_HEADER = "x-username";

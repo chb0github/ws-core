@@ -5,9 +5,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 /**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 5:24 PM
  *  401 Unauthorized
  *  Similar to 403 Forbidden, but specifically for use when authentication is possible but has failed or not yet been provided.
  *  The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource.

@@ -23,9 +23,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
-/**
- * @author cbongiorno
- */
+
 @RunWith(MockitoJUnitRunner.class)
 public class RelativeRestOperationsTest {
 

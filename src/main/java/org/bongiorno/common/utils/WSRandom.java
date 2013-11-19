@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-/**
- * @author cbongiorno
- */
-public class VdcRandom  {
+public class WSRandom {
 
     private static final Random S_RNG = new SecureRandom();
 

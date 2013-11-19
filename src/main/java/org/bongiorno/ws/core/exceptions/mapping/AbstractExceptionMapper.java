@@ -14,10 +14,6 @@ import java.util.EnumSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * @author cbongiorno
- * @version 04/23/12 16:14
- */
 public abstract class AbstractExceptionMapper<E extends Throwable> implements ExceptionMapper<E> {
     protected final Logger log = LoggerFactory.getLogger(getClass());
 

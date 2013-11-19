@@ -17,10 +17,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author cbongiorno
- *         Date: 5/17/12
- *         Time: 9:35 AM
- *         <p/>
  *         Because of the wild way that CXF dispatches REST providers (some kinda sort based on the generic type???)
  *         We need to install just 1 and take over the job. This class is for doing just that
  */

@@ -1,8 +1,7 @@
 package org.bongiorno.ws.core.dto.support;
 
-import org.bongiorno.common.Constants;
+import org.bongiorno.common.Pattern;
 import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.Constants;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -12,7 +11,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class DefaultDateTimeAdapter extends XmlAdapter<String, DateTime> implements Function<DateTime,String> {
 
-    private DateTimeFormatter formatter = DateTimeFormat.forPattern(Constants.AZ_DATE_FORMAT);
+    private DateTimeFormatter formatter = DateTimeFormat.forPattern(Pattern.SYS_DATE_FORMAT.getPattern());
 
     private DateTimeZone timeZone;
 

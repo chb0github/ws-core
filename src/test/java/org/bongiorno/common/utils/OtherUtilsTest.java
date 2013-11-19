@@ -8,11 +8,6 @@ import java.util.Random;
 
 import static org.junit.Assert.*;
 
-/**
- * @author cbongiorno
- *         Date: 06/08/12
- *         Time: 11:48 AM
- */
 public class OtherUtilsTest {
 
     @Test

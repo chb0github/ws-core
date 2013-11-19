@@ -2,7 +2,6 @@ package org.bongiorno.common.utils.functions;
 
 import org.bongiorno.common.utils.Function;
 import org.bongiorno.ws.core.exceptions.ServiceException;
-import org.bongiorno.ws.core.exceptions.ServiceException;
 
 import javax.annotation.Nullable;
 import javax.xml.transform.Source;
@@ -14,9 +13,6 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
 
-/**
- * @author cbongiorno
- */
 public class StyleSheetFunction implements Function<String, String> {
 
     private static TransformerFactory transformerFactory = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null);

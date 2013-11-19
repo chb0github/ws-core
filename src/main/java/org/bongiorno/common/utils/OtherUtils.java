@@ -14,11 +14,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
-/**
- * @author cbongiorno
- *         Date: 06/08/12
- *         Time: 4:35 PM
- */
 public class OtherUtils {
 
     private static final Logger log = LoggerFactory.getLogger(OtherUtils.class);
@@ -159,7 +154,7 @@ public class OtherUtils {
      */
     public static Collection<Field> nullFields(Object o) throws IllegalAccessException {
         //Primary use is to show me everything I forgot in a transformer test, so I want this to be easy to read.
-        Collection<Field> result = VdcCollections.delimitedCollection(new LinkedList<Field>(), "\n");
+        Collection<Field> result = WSCollections.delimitedCollection(new LinkedList<Field>(), "\n");
         for (Field field : o.getClass().getDeclaredFields()) {
             if (!Modifier.isStatic(field.getModifiers())) {
                 field.setAccessible(true);
@@ -178,7 +173,7 @@ public class OtherUtils {
     public static boolean zeroOrAllNull(Collection<?> things) {
         return things == null
                 || !things.contains(null)
-                || VdcCollections.findOne(things, not(IsNullPredicate.getInstance())) == null;
+                || WSCollections.findOne(things, not(IsNullPredicate.getInstance())) == null;
     }
 
     public static <T> Function<T, Boolean> not(Function<T, Boolean> positive) {

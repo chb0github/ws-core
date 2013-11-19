@@ -4,8 +4,6 @@ import org.bongiorno.common.Schedule;
 import org.bongiorno.common.utils.functions.CsvToSet;
 import org.bongiorno.common.utils.functions.ScheduleExpander;
 import junit.framework.Assert;
-import org.bongiorno.common.Schedule;
-import org.bongiorno.common.utils.functions.CsvToSet;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.joda.time.LocalDate;
@@ -18,11 +16,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * @author cbongiorno
- *         Date: 6/8/12
- *         Time: 5:46 PM
- */
+
 public class FunctionsTest {
 
     @Test

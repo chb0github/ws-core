@@ -1,7 +1,6 @@
 package org.bongiorno.ws.core.server.filters;
 
 import org.bongiorno.common.utils.io.ServletInputStreamAdapter;
-import org.bongiorno.common.utils.io.ServletInputStreamAdapter;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +8,6 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * @author cbongiorno
- */
 public class InputSubstitutingRequest extends HttpServletRequestWrapper {
 
     private ServletInputStream substitute;

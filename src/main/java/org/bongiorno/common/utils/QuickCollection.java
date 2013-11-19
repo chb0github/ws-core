@@ -5,9 +5,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * @author cbongiorno
- *         Date: 4/24/12
- *         Time: 3:11 PM
  *
  *         Allows you to quickly expose a wrapper class as a collection (and thus gain benefits) by
  *         merely setting the underlying collection object

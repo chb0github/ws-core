@@ -3,17 +3,10 @@ package org.bongiorno.ws.core.dto.support;
 import org.bongiorno.common.utils.QuickCollection;
 import org.bongiorno.ws.core.dto.Dto;
 import org.bongiorno.ws.core.dto.DtoUtils;
-import org.bongiorno.common.utils.QuickCollection;
-import org.bongiorno.ws.core.dto.DtoUtils;
 
 import javax.xml.bind.JAXBException;
 import java.util.Collection;
 
-/**
- * @author cbongiorno
- *         Date: 4/19/12
- *         Time: 2:23 PM
- */
 public class DtoQuickCollection<T> extends QuickCollection<T> implements Dto {
 
     public DtoQuickCollection() {

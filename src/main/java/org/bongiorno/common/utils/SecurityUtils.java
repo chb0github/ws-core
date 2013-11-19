@@ -5,10 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 
-/**
- * @author cbongiorno
- * @version 6/8/12 11:57 AM
- */
 public class SecurityUtils {
 
 

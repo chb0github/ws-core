@@ -7,11 +7,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Map;
 
-/**
- * @author cbongiorno
- * Date: 4/23/12
- * Time: 4:08 PM
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "errorResponse")
 public class ErrorResponse extends AbstractDto{

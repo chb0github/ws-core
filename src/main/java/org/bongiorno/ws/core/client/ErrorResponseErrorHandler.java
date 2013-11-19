@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.common.utils.VdcCollections;
+import org.bongiorno.common.utils.WSCollections;
 import org.bongiorno.ws.core.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,7 +39,7 @@ public class ErrorResponseErrorHandler extends DefaultResponseErrorHandler {
     }
 
     public ErrorResponseErrorHandler(Map<MediaType,ErrorReader> errorReaderMap, ErrorReader defaultErrorReader){
-        this.errorReaderMap = VdcCollections.defaultValueMap(errorReaderMap, defaultErrorReader);
+        this.errorReaderMap = WSCollections.defaultValueMap(errorReaderMap, defaultErrorReader);
     }
 
     public void handleError(ClientHttpResponse response) throws IOException {

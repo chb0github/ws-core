@@ -5,9 +5,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 /**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 5:24 PM
  *  409 Conflict
  *  Indicates that the request could not be processed because of conflict in the request, such as an edit conflict.
  */

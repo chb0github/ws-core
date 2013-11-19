@@ -13,11 +13,6 @@ import java.util.Set;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * @author cbongiorno
- *         Date: 5/10/12
- *         Time: 2:33 PM
- */
 public class MapperTest {
     @Test
     public void testAppZoneExceptionMapper() throws Exception {

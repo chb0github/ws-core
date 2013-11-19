@@ -5,10 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * @author cbongiorno
- * @version 7/1/12 11:54 AM
- */
+
 public class SecurityUtilsTest{
 
 

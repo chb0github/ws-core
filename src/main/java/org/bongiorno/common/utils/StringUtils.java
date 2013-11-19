@@ -8,11 +8,6 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
-/**
- * @author cbongiorno
- *         Date: 4/22/12
- *         Time: 2:19 PM
- */
 public class StringUtils {
 
     private static Logger log = LoggerFactory.getLogger(StringUtils.class);

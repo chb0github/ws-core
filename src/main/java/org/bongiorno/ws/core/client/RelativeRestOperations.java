@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author cbongiorno
  *         <p/>
  *         a delegate to other RestOperations with some bonuses: Allows for the embedding of configuration
  *         necessary for the client call (example: default URI paramters not necessarily call specific)

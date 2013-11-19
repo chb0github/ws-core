@@ -10,11 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-/**
- * @author cbongiorno
- *         Date: 1/6/12
- *         Time: 4:11 PM
- */
+
 public class PropertyEditorTest {
 
 

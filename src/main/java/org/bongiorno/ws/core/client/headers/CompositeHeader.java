@@ -15,9 +15,6 @@ import java.util.Set;
 
 
 /**
- * @author cbongiorno
- *         Date: 7/1/12
- *         Time: 4:31 PM
  *
  *         Applies all Callback Requests in the order they were added.
  *         If the Set constructor is used, the iterative order of that Set will be applied

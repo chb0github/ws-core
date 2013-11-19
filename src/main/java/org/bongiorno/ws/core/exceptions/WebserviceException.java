@@ -4,11 +4,6 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Map;
 
-/**
- * @author cbongiorno
- *         Date: 5/9/12
- *         Time: 4:15 PM
- */
 public class WebserviceException extends javax.xml.ws.WebServiceException {
 
     private HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;

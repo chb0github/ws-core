@@ -7,10 +7,6 @@ package org.bongiorno.ws.core.exceptions.mapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 
-/**
- *
- * @author vlazoryshyn
- */
 public class AccessDeniedExceptionMapper extends AbstractExceptionMapper<AccessDeniedException> {
 
     @Override

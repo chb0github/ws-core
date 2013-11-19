@@ -7,10 +7,7 @@ import java.io.UnsupportedEncodingException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-/**
- * @author cbongiorno
- * @version 06/08/2012 11:54 AM
- */
+
 public class StringsUtilsTest {
 
     @Test

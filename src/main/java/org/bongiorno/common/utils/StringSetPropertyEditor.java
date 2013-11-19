@@ -1,11 +1,5 @@
 package org.bongiorno.common.utils;
 
-/**
- * @author cbongiorno
- *         Date: 4/24/12
- *         Time: 4:52 PM
- */
-
 import org.bongiorno.common.utils.functions.CsvToSet;
 
 import java.beans.PropertyEditorSupport;
@@ -21,7 +15,7 @@ public class StringSetPropertyEditor extends PropertyEditorSupport {
         if (!(value instanceof Set))
             throw new IllegalArgumentException("Only a Set of Strings may be used. Type was: " + value.getClass());
 
-        return VdcCollections.delimitedCollection((Collection<String>) value, ",").toString();
+        return WSCollections.delimitedCollection((Collection<String>) value, ",").toString();
 	}
 
 	public void setAsText(String text) throws IllegalArgumentException {

@@ -1,11 +1,5 @@
 package org.bongiorno.common.utils;
 
-/**
- * @author cbongiorno
- *         Date: 4/21/12
- *         Time: 4:52 PM
- */
-
 import java.beans.PropertyEditorSupport;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -18,7 +12,7 @@ public class StringListPropertyEditor extends PropertyEditorSupport {
         if (!(value instanceof List))
             throw new IllegalArgumentException("Only a List of Strings may be used. Type was: " + value.getClass());
 
-        return VdcCollections.delimitedCollection((Collection<String>) value, ",").toString();
+        return WSCollections.delimitedCollection((Collection<String>) value, ",").toString();
     }
 
     public void setAsText(String text) throws IllegalArgumentException {

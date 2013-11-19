@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client.headers;
 
-import org.bongiorno.common.utils.VdcCollections;
+import org.bongiorno.common.utils.WSCollections;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.web.client.RequestCallback;
 
@@ -28,7 +28,7 @@ public class CopyHeaderCallback implements RequestCallback{
             outputHeaders.setContentType(mediaTypeAdapter.apply(contentType));
         }
 
-        outputHeaders.setAccept(VdcCollections.transform(inputHeaders.getAcceptableMediaTypes(), mediaTypeAdapter));
+        outputHeaders.setAccept(WSCollections.transform(inputHeaders.getAcceptableMediaTypes(), mediaTypeAdapter));
         List<String> bshwid = inputHeaders.getRequestHeader("X-BSHWID");
         if(bshwid != null && !bshwid.isEmpty()){
             outputHeaders.set("X-BSHWID", bshwid.get(0));

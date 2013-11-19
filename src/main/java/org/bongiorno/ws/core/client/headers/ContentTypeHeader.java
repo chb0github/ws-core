@@ -8,9 +8,6 @@ import org.springframework.web.client.RequestCallback;
 import java.io.IOException;
 
 /**
- * @author cbongiorno
- *         Date: 7/1/12
- *         Time: 10:08 PM
  *
  *         Sets the content type to be submited with a REST client
  */

@@ -1,7 +1,7 @@
 package org.bongiorno.ws.core.controllers;
 
 import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.utils.VdcCollections;
+import org.bongiorno.common.utils.WSCollections;
 import org.bongiorno.ws.core.context.StaticContext;
 import org.apache.commons.lang.time.DurationFormatUtils;
 import org.apache.cxf.annotations.GZIP;
@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import java.util.*;
 
-import static org.bongiorno.common.utils.VdcCollections.delimitedMap;
+import static org.bongiorno.common.utils.WSCollections.delimitedMap;
 
 @Service
 @Path("/system")
@@ -61,7 +61,7 @@ public class SystemController extends AbstractController {
 
     @PostConstruct
     public void init() {
-        Map<Object, Object> statusMap = VdcCollections.delimitedMap(new LinkedHashMap<>(), ": ", "\n");
+        Map<Object, Object> statusMap = WSCollections.delimitedMap(new LinkedHashMap<>(), ": ", "\n");
         statusMap.put("App name", appName);
         statusMap.put("Version", version);
         //This is the format that comes from maven.  Make it match StartTime.
@@ -101,7 +101,7 @@ public class SystemController extends AbstractController {
     @GET
     @Path("/urls")
     public String getUrlString() {
-        return VdcCollections.delimitedCollection(getUrls(), "\n").toString();
+        return WSCollections.delimitedCollection(getUrls(), "\n").toString();
     }
 
 
@@ -133,7 +133,7 @@ public class SystemController extends AbstractController {
 
     private SortedMap<String, String> maskProperties(Map<String, String> properties) {
         SortedMap<String, String> retVal = new TreeMap<>(properties);
-        Collection<String> toMask = VdcCollections.findAll(retVal.keySet(), sensitivePropertyFunction);
+        Collection<String> toMask = WSCollections.findAll(retVal.keySet(), sensitivePropertyFunction);
         for (String key : toMask) {
             if (!StringUtils.isEmpty(retVal.get(key))) {
                 retVal.put(key, "**********");
