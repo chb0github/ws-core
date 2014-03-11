@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.server.filters;
 
-import org.bongiorno.common.utils.io.ServletInputStreamAdapter;
+import org.bongiorno.ws.core.server.ServletInputStreamAdapter;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;

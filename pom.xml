@@ -27,9 +27,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/chb0github/ws-core</connection>
-        <developerConnection>https://github.com/chb0github/ws-core</developerConnection>
-        <url>https://github.com/chb0github/ws-core</url>
+        <connection>scm:git:git://github.com/chb0github/ws-core.git</connection>
+        <developerConnection>scm:git:git://github.com/chb0github/ws-core.git</developerConnection>
+        <url>https://github.com/chb0github/ws-core/</url>
     </scm>
 
     <properties>
@@ -298,7 +298,14 @@
             </resource>
         </resources>
         <plugins>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.2.2</version>
+                <configuration>
+                    <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -343,7 +350,38 @@
             </testResource>
         </testResources>
     </build>
-
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.4</version>
+                        <configuration>
+                            <passphrase>${gpg.passphrase}</passphrase>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <repositories>
         <repository>
             <id>tmp-mvn</id>
@@ -352,5 +390,18 @@
 
     </repositories>
 
+    <!--http://datumedge.blogspot.com/2012/05/publishing-from-github-to-maven-central.html-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Sonatype Nexus release repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

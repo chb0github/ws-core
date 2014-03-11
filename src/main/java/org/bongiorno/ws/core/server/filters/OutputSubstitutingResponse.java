@@ -1,7 +1,6 @@
 package org.bongiorno.ws.core.server.filters;
 
-import org.bongiorno.common.utils.io.ServletOutputStreamAdapter;
-import org.bongiorno.common.utils.io.ServletOutputStreamAdapter;
+import org.bongiorno.ws.core.server.ServletOutputStreamAdapter;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

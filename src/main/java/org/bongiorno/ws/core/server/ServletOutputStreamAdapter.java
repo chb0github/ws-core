@@ -1,4 +1,4 @@
-package org.bongiorno.common.utils.io;
+package org.bongiorno.ws.core.server;
 
 import javax.servlet.ServletOutputStream;
 import java.io.IOException;

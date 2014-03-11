@@ -42,4 +42,9 @@ public enum Pattern implements Validator<String> {
     public String getPattern() {
         return pattern;
     }
+
+    @Override
+    public String toString() {
+        return pattern;
+    }
 }

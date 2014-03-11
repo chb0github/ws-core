@@ -19,6 +19,14 @@ public final class WSCollections {
     public static <T> Collection<T> delimitedCollection(Collection<T> c, String delimiter) {
         return new DelimitedCollection<T>(c, delimiter);
     }
+
+    /**
+     * Delimits with the system line separator. Handy for debugging
+     * @param c your collection
+     */
+    public static <T> Collection<T> delimitNewLine(Collection<T> c) {
+        return new DelimitedCollection<T>(c, System.lineSeparator());
+    }
     /**
      *
      * @param m the map to delegate to
@@ -274,6 +282,15 @@ public final class WSCollections {
      */
     private static class DelimitedCollection<T> extends QuickCollection<T> {
         private String delimiter = ",";
+
+        /**
+         * Default delimiter is used: ','
+         * @param delegate the collection to delegate calls to
+         */
+        private DelimitedCollection(Collection<T> delegate) {
+            super.delegate = delegate;
+        }
+
 
         private DelimitedCollection(Collection<T> delegate, String delimiter) {
             super.delegate = delegate;

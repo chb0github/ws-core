@@ -119,15 +119,8 @@ public final class DtoUtils {
 
     public static JacksonJsonProvider getJsonProvider(boolean format) {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setAnnotationIntrospector(getAnnotationIntrospector());
         objectMapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, format);
         return new JacksonJsonProvider(objectMapper);
     }
 
-    private static AnnotationIntrospector getAnnotationIntrospector() {
-        if (StaticContext.isInitialized()) {
-            return StaticContext.getBean(AnnotationIntrospector.class);
-        }
-        return AnnotationIntrospector.pair(new JaxbAnnotationIntrospector(), new JacksonAnnotationIntrospector());
-    }
 }
