@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.exceptions.mapping;
 
-import org.bongiorno.ws.core.dto.support.AbstractDto;
+import org.bongiorno.dto.support.AbstractDto;
 import org.bongiorno.ws.core.exceptions.ErrorResponse;
 import org.springframework.http.HttpStatus;
 

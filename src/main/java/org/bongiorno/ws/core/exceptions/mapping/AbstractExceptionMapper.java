@@ -1,8 +1,8 @@
 package org.bongiorno.ws.core.exceptions.mapping;
 
-import org.bongiorno.ws.core.dto.support.AbstractDto;
+import org.bongiorno.dto.support.AbstractDto;
 import org.bongiorno.ws.core.exceptions.ErrorResponse;
-import org.bongiorno.ws.core.exceptions.ErrorResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

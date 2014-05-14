@@ -1,11 +1,11 @@
 package org.bongiorno.ws.core.server.filters;
 
-import org.bongiorno.common.utils.SecurityUtils;
+import org.bongiorno.misc.utils.SecurityUtils;
 import org.bongiorno.ws.core.client.headers.DefaultAuthHeader;
 import org.bongiorno.ws.core.exceptions.UnauthorizedException;
 import org.bongiorno.ws.core.server.WebserviceFilter;
 import org.apache.commons.lang.StringUtils;
-import org.bongiorno.common.utils.SecurityUtils;
+import org.bongiorno.misc.utils.SecurityUtils;
 import org.bongiorno.ws.core.exceptions.UnauthorizedException;
 import org.bongiorno.ws.core.server.WebserviceFilter;
 import org.joda.time.DateTime;

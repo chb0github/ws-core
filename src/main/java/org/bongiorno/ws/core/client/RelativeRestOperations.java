@@ -1,9 +1,10 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.common.utils.Function;
+import org.apache.commons.collections4.Transformer;
+import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
+import org.bongiorno.misc.utils.Function;
 import org.bongiorno.ws.core.client.headers.CompositeHeader;
 import org.bongiorno.ws.core.client.headers.NoOpHeader;
-import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -40,7 +41,7 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
     private RequestCallback headerStrategy = new NoOpHeader();
 
 
-    private Map<Class, Function> paramConverters = new HashMap<Class, Function>();
+    private Map<Class, Function> paramConverters = new HashMap< >();
 
 
     public RelativeRestOperations() {

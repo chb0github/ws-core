@@ -1,7 +1,6 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.common.utils.StringUtils;
-import org.bongiorno.ws.core.exceptions.ErrorResponse;
+import org.bongiorno.misc.utils.StringUtils;
 import org.bongiorno.ws.core.exceptions.ErrorResponse;
 
 import java.io.IOException;

@@ -1,9 +1,7 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.ws.core.dto.DtoUtils;
 import org.bongiorno.ws.core.exceptions.ErrorResponse;
-import org.bongiorno.ws.core.dto.DtoUtils;
-import org.bongiorno.ws.core.exceptions.ErrorResponse;
+import org.bongiorno.dto.DtoUtils;
 
 import java.io.IOException;
 import java.io.InputStream;

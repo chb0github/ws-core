@@ -1,9 +1,7 @@
 package org.bongiorno.ws.core.server;
 
-import org.bongiorno.common.utils.functions.CsvToList;
-import org.bongiorno.ws.core.dto.DtoUtils;
-import org.bongiorno.common.utils.functions.CsvToList;
-import org.bongiorno.ws.core.dto.DtoUtils;
+import org.bongiorno.misc.utils.functions.CsvToList;
+import org.bongiorno.dto.DtoUtils;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.ServletOutputStream;
@@ -20,7 +18,7 @@ public class RawResponseWriter {
     private static Map<String, ErrorHandler> errorHandlers;
     private static ErrorHandler defaultErrorHandler;
     static {
-        errorHandlers = new HashMap<String, ErrorHandler>();
+        errorHandlers = new HashMap<>();
         errorHandlers.put(MediaType.APPLICATION_XML, new XmlErrorHandler());
         errorHandlers.put(MediaType.APPLICATION_JSON, new JsonErrorHandler());
         errorHandlers.put(MediaType.TEXT_PLAIN, new TextErrorHandler());

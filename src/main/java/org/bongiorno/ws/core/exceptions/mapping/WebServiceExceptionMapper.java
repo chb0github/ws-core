@@ -30,7 +30,7 @@ public class WebServiceExceptionMapper extends AbstractExceptionMapper<Webservic
             StringBuilder msg = new StringBuilder("Webservice error: ").append(e);
             Map<String, String> details = e.getDetails();
             if (details != null) {
-                msg.append(", ").append(new TreeMap<String, String>(details));
+                msg.append(", ").append(new TreeMap<>(details));
             }
             StackTraceElement srcLocation = e.getStackTrace()[0];
             msg.append(" @ ");

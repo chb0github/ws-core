@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client.headers;
 
-import org.bongiorno.common.utils.WSCollections;
+import org.bongiorno.misc.utils.WSCollections;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.web.client.RequestCallback;
 

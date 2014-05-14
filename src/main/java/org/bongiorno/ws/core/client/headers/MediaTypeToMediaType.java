@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client.headers;
 
-import org.bongiorno.common.utils.Function;
+import org.bongiorno.misc.utils.Function;
 import org.springframework.http.MediaType;
 
 public class MediaTypeToMediaType implements Function<javax.ws.rs.core.MediaType, MediaType> {

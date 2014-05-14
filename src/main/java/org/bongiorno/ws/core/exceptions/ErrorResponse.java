@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.exceptions;
 
-import org.bongiorno.ws.core.dto.support.AbstractDto;
+import org.bongiorno.dto.support.AbstractDto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

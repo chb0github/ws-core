@@ -1,6 +1,7 @@
 package org.bongiorno.ws.core.parameterhandlers;
 
-import org.bongiorno.common.Pattern;
+
+import org.bongiorno.misc.Pattern;
 import org.bongiorno.ws.core.exceptions.BadRequestException;
 import org.apache.cxf.jaxrs.ext.ParameterHandler;
 import org.joda.time.DateTime;

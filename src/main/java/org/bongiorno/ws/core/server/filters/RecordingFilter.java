@@ -1,12 +1,11 @@
 package org.bongiorno.ws.core.server.filters;
 
-import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.utils.io.CapturingInputStream;
-import org.bongiorno.common.utils.io.CompositeOutputStream;
+import org.bongiorno.misc.utils.Function;
+import org.bongiorno.misc.utils.io.CapturingInputStream;
+import org.bongiorno.misc.utils.io.CompositeOutputStream;
 import org.bongiorno.ws.core.server.WebserviceFilter;
 import org.apache.cxf.helpers.IOUtils;
-import org.bongiorno.common.utils.io.CompositeOutputStream;
-import org.bongiorno.ws.core.server.WebserviceFilter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

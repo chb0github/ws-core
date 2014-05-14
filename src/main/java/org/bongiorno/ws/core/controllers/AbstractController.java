@@ -1,7 +1,7 @@
 package org.bongiorno.ws.core.controllers;
 
-import org.bongiorno.common.utils.OtherUtils;
-import org.bongiorno.common.utils.WSCollections;
+import org.bongiorno.misc.utils.OtherUtils;
+import org.bongiorno.misc.utils.WSCollections;
 import org.bongiorno.ws.core.exceptions.BadRequestException;
 import org.joda.time.DateTime;
 

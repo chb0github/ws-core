@@ -1,7 +1,7 @@
 package org.bongiorno.ws.core.controllers;
 
-import org.bongiorno.common.utils.Function;
-import org.bongiorno.common.utils.WSCollections;
+import org.bongiorno.misc.utils.Function;
+import org.bongiorno.misc.utils.WSCollections;
 import org.bongiorno.ws.core.context.StaticContext;
 import org.apache.commons.lang.time.DurationFormatUtils;
 import org.apache.cxf.annotations.GZIP;
@@ -21,7 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import java.util.*;
 
-import static org.bongiorno.common.utils.WSCollections.delimitedMap;
+import static org.bongiorno.misc.utils.WSCollections.delimitedMap;
 
 @Service
 @Path("/system")

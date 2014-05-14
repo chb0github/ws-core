@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.common.utils.WSCollections;
+import org.bongiorno.misc.utils.WSCollections;
 import org.bongiorno.ws.core.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

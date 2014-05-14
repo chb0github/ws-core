@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.client.headers;
 
-import org.bongiorno.common.utils.SecurityUtils;
+import org.bongiorno.misc.utils.SecurityUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.web.client.RequestCallback;

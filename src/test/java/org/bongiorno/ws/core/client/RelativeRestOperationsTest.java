@@ -1,7 +1,6 @@
 package org.bongiorno.ws.core.client;
 
-import org.bongiorno.ws.core.client.headers.ConstantHeader;
-import org.bongiorno.ws.core.dto.support.DefaultDateTimeAdapter;
+import org.bongiorno.dto.support.DefaultDateTimeAdapter;
 import org.bongiorno.ws.core.client.headers.ConstantHeader;
 import org.joda.time.DateTime;
 import org.junit.Before;

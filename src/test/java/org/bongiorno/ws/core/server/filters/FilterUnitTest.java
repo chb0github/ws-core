@@ -1,7 +1,7 @@
 package org.bongiorno.ws.core.server.filters;
 
-import org.bongiorno.common.utils.SecurityUtils;
-import org.bongiorno.common.utils.WSRandom;
+import org.bongiorno.misc.utils.SecurityUtils;
+import org.bongiorno.misc.utils.WSRandom;
 import org.bongiorno.ws.core.client.headers.DefaultAuthHeader;
 import org.bongiorno.ws.core.exceptions.UnauthorizedException;
 import org.junit.Before;

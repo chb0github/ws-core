@@ -1,7 +1,6 @@
 package org.bongiorno.ws.core.client.headers;
 
-import org.bongiorno.common.utils.QuickCollection;
-import org.bongiorno.common.utils.QuickCollection;
+import org.bongiorno.misc.utils.QuickCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.client.ClientHttpRequest;
