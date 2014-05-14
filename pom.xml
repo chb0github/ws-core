@@ -27,8 +27,7 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/chb0github/ws-core.git</connection>
-        <developerConnection>scm:git:git://github.com/chb0github/ws-core.git</developerConnection>
+        <connection>scm:git:git@github.com:chb0github/ws-core.git</connection>
         <url>https://github.com/chb0github/ws-core/</url>
     </scm>
 
