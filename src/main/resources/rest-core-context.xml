@@ -11,7 +11,7 @@
 
     <bean id="annotationIntrospector" class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
         <constructor-arg>
-            <bean class="org.bongiorno.ws.core.dto.support.AdapterBeanAnnotationIntrospector"/>
+            <bean class="org.bongiorno.dto.support.AdapterBeanAnnotationIntrospector"/>
         </constructor-arg>
         <constructor-arg>
             <bean class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
@@ -33,9 +33,9 @@
         </constructor-arg>
     </bean>
 
-    <bean id="dateOnlyAdapter" class="org.bongiorno.ws.core.dto.support.DefaultLocalDateAdapter"/>
-    <bean id="timeOnlyAdapter" class="org.bongiorno.ws.core.dto.support.DefaultLocalTimeAdapter"/>
-    <bean id="dateTimeAdapter" class="org.bongiorno.ws.core.dto.support.DefaultDateTimeAdapter"/>
+    <bean id="dateOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalDateAdapter"/>
+    <bean id="timeOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalTimeAdapter"/>
+    <bean id="dateTimeAdapter" class="org.bongiorno.dto.support.DefaultDateTimeAdapter"/>
 
     <bean id="dateTimeParameterHandler"  class="org.bongiorno.ws.core.parameterhandlers.DateTimeParameterHandler"/>
 
@@ -103,7 +103,7 @@
 
     <bean id="systemController" class="org.bongiorno.ws.core.controllers.SystemController" lazy-init="true">
         <constructor-arg>
-            <bean class="org.bongiorno.common.utils.functions.predicates.RegexMatchPredicate">
+            <bean class="org.bongiorno.misc.utils.functions.predicates.RegexMatchPredicate">
                 <constructor-arg value=".*(password|secret|passphrase|safenet\.iv|key).*"/>
             </bean>
         </constructor-arg>
