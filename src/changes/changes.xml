@@ -9,6 +9,8 @@
         <release version="1.0.1" date="2014-05-22" description="fixed some runtime issues">
             <action issue="bean defininitions not resolving in bean descriptor files due to refactor "/>
             <action issue="added integration tests that simply load the app context to permanently verify this"/>
+            <action issue="updated RelativeRestOperations to help it correctly disambiguate between Object ... and no args method calls"/>
+            <action issue="added BasicAuthentication strategy as per http://tools.ietf.org/html/rfc1945"/>
         </release>
         <release version="1.0.0" date="2014-05-17" description="initial check in"/>
     </body>

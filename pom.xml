@@ -48,7 +48,11 @@
             <artifactId>joda-time</artifactId>
             <version>2.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.0.3.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.bongiorno</groupId>
             <artifactId>dto-support</artifactId>
@@ -369,6 +373,27 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-changes-plugin</artifactId>
+                        <version>2.7.1</version>
+                        <configuration>
+                            <mailSender>
+                                <name>Release Notification</name>
+                                <email>christian@bongiorno.org</email>
+                            </mailSender>
+                            <smtpHost>somehost</smtpHost>
+                            <smtpPort implementation="java.lang.Integer">25</smtpPort>
+                            <toAddresses>
+                                <toAddress implementation="java.lang.String">christian@bongiorno.org</toAddress>
+                            </toAddresses>
+                            <issueTypes>
+                                <add>Story</add>
+                                <fix>Defect, Malfunction</fix>
+                                <update>Updates</update>
+                            </issueTypes>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>

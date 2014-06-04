@@ -72,6 +72,13 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         this.setHttpConnectionManagerParams(connectionManagerParams);
     }
 
+    private Object[] getUriVariables(Object... uriVariables) {
+        if (uriVariables.length == 0)
+            uriVariables =  this.defaultUriVariables.values().toArray();
+        return uriVariables;
+    }
+
+
     private Map<String, ?> getUriVariables(Map<String, ?> uriVariables) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.putAll(defaultUriVariables);
@@ -84,6 +91,30 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         return map;
     }
 
+    private Object[] convertTypes(Object[] in) {
+        Object[] copy = new Object[in.length];
+
+        for (int i = 0; i < in.length; i++) {
+            Object o = in[i];
+            if (o != null) {
+                Function converter = getConverter(o);
+                copy[i] = (converter == null ? o : converter.apply(o));
+            }
+        }
+
+        return copy;
+    }
+
+    private Function getConverter(Object o) {
+        Function converter = null;
+        if (o != null) {
+            for (Class c = o.getClass(); converter == null && c != Object.class; c = c.getSuperclass()) {
+                converter = paramConverters.get(c);
+            }
+            paramConverters.put(o.getClass(), converter);
+        }
+        return converter;
+    }
     public <T> Function<T, String> addConverter(Class<T> type, Function<T, String> converter) {
         return paramConverters.put(type, converter);
     }
@@ -95,6 +126,15 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
     private void checkUrl(String url) {
         if (url.startsWith("http"))
             throw new IllegalArgumentException("Please pass urls relative to " + baseUrl);
+    }
+
+    @Override
+    public <T> T getForObject(String url, Class<T> responseType, Object... urlVariables) throws RestClientException {
+        return super.getForObject(url, responseType, getUriVariables(urlVariables));
+    }
+
+    public <T> T getForObject(String url, Class<T> responseType) throws RestClientException {
+        return super.getForObject(url, responseType, this.defaultUriVariables.values().toArray());
     }
 
     @Override
@@ -122,8 +162,17 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         return super.postForObject(url, request, responseType, getUriVariables(uriVariables));
     }
 
+    @Override
+    public <T> T postForObject(String url, Object request, Class<T> responseType, Object... uriVariables) throws RestClientException {
+        return super.postForObject(url, request, responseType, getUriVariables(uriVariables));
+    }
+
     public <T> T postForObject(Object request, Class<T> responseType, Object... uriVariables) throws RestClientException {
         return postForObject("", request, responseType, uriVariables);
+    }
+
+    public <T> T postForObject(String url, Object request, Class<T> responseType) throws RestClientException {
+        return super.postForObject(url, request, responseType, this.defaultUriVariables.values().toArray());
     }
 
     @Override
@@ -166,30 +215,6 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         return super.execute(baseUrl + relativeUrl, method, new CompositeHeader(requestCallback, headerStrategy), responseExtractor, uriVariables);
     }
 
-    private Object[] convertTypes(Object[] in) {
-        Object[] copy = new Object[in.length];
-
-        for (int i = 0; i < in.length; i++) {
-            Object o = in[i];
-            if (o != null) {
-                Function converter = getConverter(o);
-                copy[i] = (converter == null ? o : converter.apply(o));
-            }
-        }
-
-        return copy;
-    }
-
-    private Function getConverter(Object o) {
-        Function converter = null;
-        if (o != null) {
-            for (Class c = o.getClass(); converter == null && c != Object.class; c = c.getSuperclass()) {
-                converter = paramConverters.get(c);
-            }
-            paramConverters.put(o.getClass(), converter);
-        }
-        return converter;
-    }
 
     public Map<String, Object> getDefaultUriVariables() {
         return defaultUriVariables;
