@@ -15,6 +15,14 @@ public class DateTimeParameterHandler implements ParameterHandler<DateTime> {
 
     private DateTimeFormatter formatter = DateTimeFormat.forPattern(Pattern.SYS_DATE_FORMAT.getPattern());
 
+
+    public DateTimeParameterHandler() {
+    }
+
+    public DateTimeParameterHandler(String format) {
+        formatter = DateTimeFormat.forPattern(format);
+    }
+
     @Override
     public DateTime fromString(String s) {
         DateTime results = null;

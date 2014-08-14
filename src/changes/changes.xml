@@ -6,6 +6,9 @@
     </properties>
 
     <body>
+        <release version="1.0.2" date="2014-08-14" description="more features">
+            <action issue="Added a overload constructor to DateTimeParameterHandler so you can declare the format. How did I miss that?"/>
+        </release>
         <release version="1.0.1" date="2014-05-22" description="fixed some runtime issues">
             <action issue="bean defininitions not resolving in bean descriptor files due to refactor "/>
             <action issue="added integration tests that simply load the app context to permanently verify this"/>
