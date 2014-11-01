@@ -1,11 +1,10 @@
 package org.bongiorno.ws.core.controllers;
 
+import org.apache.commons.lang.StringUtils;
 import org.bongiorno.misc.utils.Function;
 import org.bongiorno.misc.utils.WSCollections;
 import org.bongiorno.ws.core.context.StaticContext;
 import org.apache.commons.lang.time.DurationFormatUtils;
-import org.apache.cxf.annotations.GZIP;
-import org.apache.cxf.common.util.StringUtils;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +25,6 @@ import static org.bongiorno.misc.utils.WSCollections.delimitedMap;
 @Service
 @Path("/system")
 @Produces({MediaType.TEXT_PLAIN})
-@GZIP(threshold = 60)
 public class SystemController extends AbstractController {
 
     @Autowired

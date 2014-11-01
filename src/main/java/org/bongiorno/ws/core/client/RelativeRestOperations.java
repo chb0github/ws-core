@@ -9,10 +9,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RequestCallback;
-import org.springframework.web.client.ResponseErrorHandler;
-import org.springframework.web.client.ResponseExtractor;
-import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.*;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -20,18 +17,18 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *         <p/>
+
  *         a delegate to other RestOperations with some bonuses: Allows for the embedding of configuration
  *         necessary for the client call (example: default URI paramters not necessarily call specific)
  *         and, accepts a relative URL (only) when the baseUrl is set. It is assumed that the only thing that changes per
  *         client call is the relative path.
- *         <p/>
+
  *         Operations that take a URL/URI class as input are NOT treated as above and allow you to still circumvent
  *         the relative address feature.
- *         <p/>
+
  *         uri default variables (as configured) will be overwritten by values passed in
  */
-public class RelativeRestOperations extends MultiThreadedRestTemplate {
+public class RelativeRestOperations extends RestTemplate {
 
 
     private Map<String, Object> defaultUriVariables = new HashMap<String, Object>();
@@ -60,7 +57,6 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         this.baseUrl = baseUrl;
         this.headerStrategy = headerStrategy;
         this.setErrorHandler(errorHandler);
-        this.setHttpConnectionManagerParams(connectionManagerParams);
     }
 
     public RelativeRestOperations(String baseUrl, RequestCallback headerStrategy, ResponseErrorHandler errorHandler,
@@ -69,7 +65,6 @@ public class RelativeRestOperations extends MultiThreadedRestTemplate {
         this.paramConverters = paramConverters;
         this.headerStrategy = headerStrategy;
         this.setErrorHandler(errorHandler);
-        this.setHttpConnectionManagerParams(connectionManagerParams);
     }
 
     private Object[] getUriVariables(Object... uriVariables) {

@@ -6,6 +6,9 @@
     </properties>
 
     <body>
+        <release version="1.0.3" date="2014-10-02" description="more features">
+            <action issue="remove dependency on CXF so we can support jersey and such"/>
+        </release>
         <release version="1.0.2" date="2014-08-14" description="more features">
             <action issue="Added a overload constructor to DateTimeParameterHandler so you can declare the format. How did I miss that?"/>
         </release>

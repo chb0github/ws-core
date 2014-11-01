@@ -3,7 +3,7 @@ package org.bongiorno.ws.core.parameterhandlers;
 
 import org.bongiorno.misc.Pattern;
 import org.bongiorno.ws.core.exceptions.BadRequestException;
-import org.apache.cxf.jaxrs.ext.ParameterHandler;
+//import org.apache.cxf.jaxrs.ext.ParameterHandler;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -11,7 +11,7 @@ import org.joda.time.format.DateTimeFormatter;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class DateTimeParameterHandler implements ParameterHandler<DateTime> {
+public class DateTimeParameterHandler /*implements ParameterHandler<DateTime>*/ {
 
     private DateTimeFormatter formatter = DateTimeFormat.forPattern(Pattern.SYS_DATE_FORMAT.getPattern());
 
@@ -23,7 +23,7 @@ public class DateTimeParameterHandler implements ParameterHandler<DateTime> {
         formatter = DateTimeFormat.forPattern(format);
     }
 
-    @Override
+//    @Override
     public DateTime fromString(String s) {
         DateTime results = null;
         try {

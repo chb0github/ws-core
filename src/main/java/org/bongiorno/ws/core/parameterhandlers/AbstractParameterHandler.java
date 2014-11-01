@@ -1,14 +1,14 @@
 package org.bongiorno.ws.core.parameterhandlers;
 
 import org.bongiorno.ws.core.exceptions.ResourceNotFoundException;
-import org.apache.cxf.jaxrs.ext.ParameterHandler;
+//import org.apache.cxf.jaxrs.ext.ParameterHandler;
 
 import javax.validation.constraints.NotNull;
 
 
-public abstract class AbstractParameterHandler<R, I> implements ParameterHandler<R> {
+public abstract class AbstractParameterHandler<R, I>/* implements ParameterHandler<R>*/ {
 
-    @Override
+//    @Override
     public final R fromString(@NotNull String id) {
         I realId = getId(id);
         R result = getResult(realId);

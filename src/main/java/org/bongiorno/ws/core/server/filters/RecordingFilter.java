@@ -1,11 +1,10 @@
 package org.bongiorno.ws.core.server.filters;
 
+import org.apache.commons.io.IOUtils;
 import org.bongiorno.misc.utils.Function;
 import org.bongiorno.misc.utils.io.CapturingInputStream;
 import org.bongiorno.misc.utils.io.CompositeOutputStream;
 import org.bongiorno.ws.core.server.WebserviceFilter;
-import org.apache.cxf.helpers.IOUtils;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -46,7 +45,7 @@ public class RecordingFilter extends WebserviceFilter {
 
         int statusCode = myResponse.getStatus();
         if (shouldLog.apply(statusCode)) {
-            String input = IOUtils.readStringFromStream(capturedInput.getCapturedInputStream());
+            String input = IOUtils.toString(capturedInput.getCapturedInputStream());
             String output = String.format("Resource: %s %s\nStatus code: %s\nRequest: %s\nResponse: %s",
                     request.getMethod(), request.getRequestURI(),statusCode, input, capturedOutput.toString());
             logger.trace(output);

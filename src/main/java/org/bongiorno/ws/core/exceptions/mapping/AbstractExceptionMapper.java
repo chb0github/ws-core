@@ -57,9 +57,9 @@ public abstract class AbstractExceptionMapper<E extends Throwable> implements Ex
             StackTraceElement srcLocation = exception.getStackTrace()[0];
             msg.append(" @ ");
             msg.append(srcLocation.getFileName()).append(", line ").append(srcLocation.getLineNumber());
-            log.error(msg.toString());
+            log.debug(msg.toString());
         } else {
-            log.debug(exception.getMessage(), exception);
+            log.error(exception.getMessage(), exception);
         }
 
     }
