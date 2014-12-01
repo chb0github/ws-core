@@ -6,6 +6,10 @@
                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 			               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 
+<!-- Got migrated to DTO support-->
+    <bean id="dateOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalDateAdapter"/>
+    <bean id="timeOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalTimeAdapter"/>
+    <bean id="dateTimeAdapter" class="org.bongiorno.dto.support.DefaultDateTimeAdapter"/>
 
 
     <bean id="annotationIntrospector" class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
@@ -23,7 +27,7 @@
             </bean>
         </constructor-arg>
     </bean>
-
+<!-- migrated-->
     <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
         <constructor-arg>
             <bean class="org.codehaus.jackson.map.ObjectMapper">
@@ -31,10 +35,6 @@
             </bean>
         </constructor-arg>
     </bean>
-
-    <bean id="dateOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalDateAdapter"/>
-    <bean id="timeOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalTimeAdapter"/>
-    <bean id="dateTimeAdapter" class="org.bongiorno.dto.support.DefaultDateTimeAdapter"/>
 
     <bean id="dateTimeParameterHandler"  class="org.bongiorno.ws.core.parameterhandlers.DateTimeParameterHandler"/>
 

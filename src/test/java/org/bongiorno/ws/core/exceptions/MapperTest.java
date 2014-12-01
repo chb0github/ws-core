@@ -15,7 +15,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class MapperTest {
     @Test
-    public void testAppZoneExceptionMapper() throws Exception {
+    public void testExceptionMapper() throws Exception {
         WebServiceExceptionMapper mapper = new WebServiceExceptionMapper();
         ResourceNotFoundException rnfe = new ResourceNotFoundException("test");
         Response r = mapper.toResponse(rnfe);

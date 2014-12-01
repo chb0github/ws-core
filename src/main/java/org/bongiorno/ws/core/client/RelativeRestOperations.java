@@ -1,6 +1,5 @@
 package org.bongiorno.ws.core.client;
 
-import org.apache.commons.collections4.Transformer;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
 import org.bongiorno.misc.utils.Function;
 import org.bongiorno.ws.core.client.headers.CompositeHeader;
