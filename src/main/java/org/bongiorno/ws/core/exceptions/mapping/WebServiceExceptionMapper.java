@@ -35,7 +35,7 @@ public class WebServiceExceptionMapper extends AbstractExceptionMapper<Webservic
             StackTraceElement srcLocation = e.getStackTrace()[0];
             msg.append(" @ ");
             msg.append(srcLocation.getFileName()).append(", line ").append(srcLocation.getLineNumber());
-            log.debug(msg.toString());
+            log.debug(msg.toString(), e);
         }
     }
 }

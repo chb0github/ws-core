@@ -4,7 +4,6 @@ import org.apache.commons.lang.StringUtils;
 import org.bongiorno.misc.utils.Function;
 import org.bongiorno.misc.utils.WSCollections;
 import org.bongiorno.ws.core.context.StaticContext;
-import org.apache.commons.lang.time.DurationFormatUtils;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,10 +89,6 @@ public class SystemController extends AbstractController {
     @Path("/status")
     public String getStatus() {
         return status;
-    }
-
-    public String getUptime() {
-        return DurationFormatUtils.formatDurationWords(System.currentTimeMillis() - startTime.getMillis(), true, false);
     }
 
     @GET

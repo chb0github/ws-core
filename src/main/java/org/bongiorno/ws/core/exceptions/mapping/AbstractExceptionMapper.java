@@ -52,12 +52,7 @@ public abstract class AbstractExceptionMapper<E extends Throwable> implements Ex
         // if it's NOT an ignorable exception then we can use default logging behavior
         HttpStatus httpStatus = getHttpStatus(exception);
         if (noLogStatusCodes.contains(httpStatus)) {
-            StringBuilder msg = new StringBuilder();
-            msg.append(exception);
-            StackTraceElement srcLocation = exception.getStackTrace()[0];
-            msg.append(" @ ");
-            msg.append(srcLocation.getFileName()).append(", line ").append(srcLocation.getLineNumber());
-            log.debug(msg.toString());
+            log.debug(exception.getMessage(), exception);
         } else {
             log.error(exception.getMessage(), exception);
         }

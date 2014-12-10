@@ -6,34 +6,19 @@
                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 			               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 
-<!-- Got migrated to DTO support-->
-    <bean id="dateOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalDateAdapter"/>
-    <bean id="timeOnlyAdapter" class="org.bongiorno.dto.support.DefaultLocalTimeAdapter"/>
-    <bean id="dateTimeAdapter" class="org.bongiorno.dto.support.DefaultDateTimeAdapter"/>
+    <import resource="classpath:dto-support.xml"/>
 
-
-    <bean id="annotationIntrospector" class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
-        <constructor-arg>
-            <bean class="org.bongiorno.dto.support.AdapterBeanAnnotationIntrospector"/>
-        </constructor-arg>
-        <constructor-arg>
-            <bean class="org.codehaus.jackson.map.AnnotationIntrospector.Pair">
-                <constructor-arg>
-                    <bean class="org.codehaus.jackson.xc.JaxbAnnotationIntrospector"/>
-                </constructor-arg>
-                <constructor-arg>
-                    <bean class="org.codehaus.jackson.map.introspect.JacksonAnnotationIntrospector"/>
-                </constructor-arg>
-            </bean>
-        </constructor-arg>
+    <bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+        <property name="annotationIntrospector" ref="annotationIntrospector"/>
+        <property name="featuresToDisable">
+            <list>
+                <value type="com.fasterxml.jackson.databind.SerializationFeature">WRITE_DATES_AS_TIMESTAMPS</value>
+            </list>
+        </property>
     </bean>
-<!-- migrated-->
-    <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
-        <constructor-arg>
-            <bean class="org.codehaus.jackson.map.ObjectMapper">
-                <property name="annotationIntrospector" ref="annotationIntrospector"/>
-            </bean>
-        </constructor-arg>
+
+    <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" scope="singleton">
+        <constructor-arg name="mapper" ref="objectMapper"/>
     </bean>
 
     <bean id="dateTimeParameterHandler"  class="org.bongiorno.ws.core.parameterhandlers.DateTimeParameterHandler"/>
@@ -69,12 +54,8 @@
         <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
         <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
         <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-            <property name="objectMapper">
-                <bean class="org.codehaus.jackson.map.ObjectMapper">
-                    <property name="annotationIntrospector" ref="annotationIntrospector"/>
-                </bean>
-            </property>
+        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            <property name="objectMapper" ref="objectMapper"/>
         </bean>
         <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
     </util:list>
@@ -83,9 +64,10 @@
         <entry key="org.joda.time.DateTime" value-ref="dateTimeAdapter"/>
     </util:map>
 
-    <bean id="dispatcherExceptionMapper" class="org.bongiorno.ws.core.exceptions.mapping.DispatcherExceptionMapper" lazy-init="true">
+    <bean id="dispatcherExceptionMapper" class="org.bongiorno.ws.core.exceptions.mapping.DispatcherExceptionMapper"
+          lazy-init="true" scope="singleton">
         <constructor-arg>
-            <util:set>
+        <util:set>
                 <bean class="org.bongiorno.ws.core.exceptions.mapping.WebServiceExceptionMapper"/>
                 <bean class="org.bongiorno.ws.core.exceptions.mapping.WebApplicationExceptionMapper"/>
                 <bean class="org.bongiorno.ws.core.exceptions.mapping.AuthenticationExceptionMapper"/>
@@ -103,7 +85,7 @@
     <bean id="systemController" class="org.bongiorno.ws.core.controllers.SystemController" lazy-init="true">
         <constructor-arg>
             <bean class="org.bongiorno.misc.utils.functions.predicates.RegexMatchPredicate">
-                <constructor-arg value=".*(password|secret|passphrase|safenet\.iv|key).*"/>
+                <constructor-arg value=".*(password|secret|passphrase|key).*"/>
             </bean>
         </constructor-arg>
         <constructor-arg>

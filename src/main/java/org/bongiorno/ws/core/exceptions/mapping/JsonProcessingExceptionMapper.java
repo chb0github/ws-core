@@ -1,6 +1,6 @@
 package org.bongiorno.ws.core.exceptions.mapping;
 
-import org.codehaus.jackson.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 
 public class JsonProcessingExceptionMapper extends AbstractExceptionMapper<JsonProcessingException>{
