@@ -45,11 +45,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.bongiorno</groupId>
-            <artifactId>misc</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>

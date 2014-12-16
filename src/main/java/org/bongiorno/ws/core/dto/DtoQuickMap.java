@@ -1,9 +1,9 @@
 package org.bongiorno.ws.core.dto;
 
 
-import org.bongiorno.misc.utils.QuickMap;
+import org.bongiorno.ws.core.QuickMap;
 
-import java.lang.Override;import java.lang.String;import java.util.Map;
+import java.util.Map;
 
 public class DtoQuickMap<K,V> extends QuickMap<K,V> implements Dto {
 

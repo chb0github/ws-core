@@ -1,8 +1,9 @@
 package org.bongiorno.ws.core.dto;
 
-import org.bongiorno.misc.utils.QuickCollection;
 
-import java.lang.Override;import java.lang.String;import java.util.Collection;
+import org.bongiorno.ws.core.QuickCollection;
+
+import java.util.Collection;
 
 public class DtoQuickCollection<T> extends QuickCollection<T> implements Dto {
 
