@@ -4,11 +4,9 @@ package org.bongiorno.ws.core.dto;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-import org.apache.commons.io.IOUtils;
 
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.*;
-import javax.xml.crypto.dsig.Transform;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -53,15 +51,24 @@ public interface Dto {
     }
 
     default String stylize(InputStream xsltStream) throws TransformerException, JAXBException, IOException {
-        String xmlIn = this.toXml(false);
-        return stylize(xmlIn, IOUtils.toString(xsltStream));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        toXml(this, baos, false);
+        ByteArrayOutputStream styleOut = new ByteArrayOutputStream();
+        stylize(new ByteArrayInputStream(baos.toByteArray()), xsltStream, styleOut);
+        return styleOut.toString();
     }
 
-    public static JacksonJaxbJsonProvider getJsonProvider(boolean format) {
-        JacksonJaxbJsonProvider provider = new JacksonJaxbJsonProvider();
-        provider.configure(SerializationFeature.INDENT_OUTPUT, format);
-        provider.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-        return provider;
+    public static OutputStream stylize(InputStream xmlIn, InputStream xslt, OutputStream out) {
+        Source styleSheet = new StreamSource(new BufferedInputStream(xslt));
+        Source xmlInput = new StreamSource(new BufferedInputStream(xmlIn));
+        try {
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer(styleSheet);
+            transformer.transform(xmlInput, new StreamResult(out));
+        } catch (TransformerException e) {
+            throw new RuntimeException(String.format("Unable to apply stylesheet to content %s", xmlIn), e);
+        }
+        return out;
     }
 
     public static String stylize(String xmlIn, String xslt) {
@@ -78,6 +85,14 @@ public interface Dto {
         }
         return messageBuffer.toString();
     }
+
+    public static JacksonJaxbJsonProvider getJsonProvider(boolean format) {
+        JacksonJaxbJsonProvider provider = new JacksonJaxbJsonProvider();
+        provider.configure(SerializationFeature.INDENT_OUTPUT, format);
+        provider.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        return provider;
+    }
+
 
     /**
      * @param o      the @XmlRootElement object to output

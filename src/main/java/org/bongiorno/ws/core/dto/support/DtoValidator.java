@@ -1,6 +1,5 @@
 package org.bongiorno.ws.core.dto.support;
 
-import org.bongiorno.ws.core.exceptions.BadRequestException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.bongiorno.ws.core.exceptions.BadRequestException;
