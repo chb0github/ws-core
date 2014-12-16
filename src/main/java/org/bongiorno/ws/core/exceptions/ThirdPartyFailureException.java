@@ -4,13 +4,10 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Map;
 
-/**
- * An example of when this exception is meant to be used is when a payment cannot be processed because the credit card
- * was declined.
- */
+
 public class ThirdPartyFailureException extends WebserviceException{
 
-    public static final HttpStatus STATUS = HttpStatus.METHOD_FAILURE;
+    public static final HttpStatus STATUS = HttpStatus.FAILED_DEPENDENCY;
 
     public ThirdPartyFailureException(Throwable cause, String messageFormat, Object... args) {
         super(STATUS, cause, messageFormat, args);

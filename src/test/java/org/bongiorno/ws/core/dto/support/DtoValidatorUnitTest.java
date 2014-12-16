@@ -33,14 +33,14 @@ public class DtoValidatorUnitTest {
     @Test
     public void testDoValidation() throws Exception{
         when(joinPoint.getArgs()).thenReturn(args);
-        when(validator.validate("argString")).thenReturn(new HashSet<ConstraintViolation<String>>());
+        when(validator.validate("argString")).thenReturn(new HashSet<>());
 
         dtoValidator.doValidation(joinPoint);
     }
 
     public void testDoValidationWithErrors() throws Exception{
         Set<ConstraintViolation<String>> violations = new HashSet<ConstraintViolation<String>>();
-        violations.add(new TestConstrainViolation<String>("test constraint"));
+        violations.add(new TestConstrainViolation<>("test constraint"));
         when(joinPoint.getArgs()).thenReturn(args);
         when(validator.validate("argString")).thenReturn(violations);
 

@@ -1,6 +1,7 @@
 package org.bongiorno.ws.core.exceptions;
 
-import org.bongiorno.dto.support.AbstractDto;
+
+import org.bongiorno.ws.core.dto.Dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "errorResponse")
-public class ErrorResponse extends AbstractDto{
+public class ErrorResponse implements Dto {
     private String message;
     private Integer httpStatusCode;
     private String httpMessage;
