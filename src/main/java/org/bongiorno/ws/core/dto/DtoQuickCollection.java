@@ -1,7 +1,8 @@
 package org.bongiorno.ws.core.dto;
 
 
-import org.bongiorno.ws.core.QuickCollection;
+
+import org.bongiorno.misc.utils.QuickCollection;
 
 import java.util.Collection;
 

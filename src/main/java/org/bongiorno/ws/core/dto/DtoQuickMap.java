@@ -1,7 +1,8 @@
 package org.bongiorno.ws.core.dto;
 
 
-import org.bongiorno.ws.core.QuickMap;
+
+import org.bongiorno.misc.utils.QuickMap;
 
 import java.util.Map;
 
