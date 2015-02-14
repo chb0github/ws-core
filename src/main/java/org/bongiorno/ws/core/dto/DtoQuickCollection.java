@@ -2,7 +2,7 @@ package org.bongiorno.ws.core.dto;
 
 
 
-import org.bongiorno.misc.utils.QuickCollection;
+import org.bongiorno.misc.collections.QuickCollection;
 
 import java.util.Collection;
 

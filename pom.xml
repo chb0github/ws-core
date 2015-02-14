@@ -6,6 +6,9 @@
     <artifactId>ws-core</artifactId>
     <version>1.0.7-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <!--http://datumedge.blogspot.com/2012/05/publishing-from-github-to-maven-central.html-->
+    <!--https://oss.sonatype.org/#welcome-->
+    <!-- staging repos - close - then release. Your libs are at the bottom-->
 
     <name>Webservices Core</name>
     <description>Core classes to be shared amongst all webservice implementations</description>
@@ -96,7 +99,7 @@
         <dependency>
             <groupId>org.bongiorno</groupId>
             <artifactId>misc</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.7</version>
         </dependency>
         <!--  Provided by Tomcat -->
         <dependency>

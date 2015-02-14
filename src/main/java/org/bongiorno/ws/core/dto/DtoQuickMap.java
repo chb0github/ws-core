@@ -2,7 +2,7 @@ package org.bongiorno.ws.core.dto;
 
 
 
-import org.bongiorno.misc.utils.QuickMap;
+import org.bongiorno.misc.collections.QuickMap;
 
 import java.util.Map;
 
