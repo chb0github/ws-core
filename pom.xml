@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.bongiorno</groupId>
     <artifactId>ws-core</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9-SNAPSHOT</version>
     <packaging>jar</packaging>
     <!--http://datumedge.blogspot.com/2012/05/publishing-from-github-to-maven-central.html-->
     <!--https://oss.sonatype.org/#welcome-->
