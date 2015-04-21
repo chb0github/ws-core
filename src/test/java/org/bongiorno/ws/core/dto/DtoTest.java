@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 
 public class DtoTest {
@@ -42,5 +47,7 @@ public class DtoTest {
         private String firstName = "Christian";
         private String lastName = "Bongiorno";
         private Integer age = 10;
+
+        private String nullValue = null;
     }
 }

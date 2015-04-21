@@ -1,9 +1,15 @@
 package org.bongiorno.ws.core.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.introspect.AnnotationIntrospectorPair;
+import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.*;
@@ -88,8 +94,15 @@ public interface Dto {
 
     public static JacksonJaxbJsonProvider getJsonProvider(boolean format) {
         JacksonJaxbJsonProvider provider = new JacksonJaxbJsonProvider();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+//        mapper.setSerializationInclusion(JsonInclude.Include.NON_DEFAULT);
+        mapper.setAnnotationIntrospector(new AnnotationIntrospectorPair(new JaxbAnnotationIntrospector(TypeFactory.defaultInstance()), new JacksonAnnotationIntrospector()));
+        provider.setMapper(mapper);
         provider.configure(SerializationFeature.INDENT_OUTPUT, format);
         provider.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+//        provider.configure(SerializationFeature.WRITE_EMPTY_JSON_ARRAYS, false);
+//        provider.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
         return provider;
     }
 
